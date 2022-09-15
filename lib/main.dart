@@ -1,7 +1,15 @@
+import 'package:authenticator/pages/user_guide.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( MaterialApp(
+      theme: ThemeData(
+      primarySwatch: Colors.orange,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: const MyApp(),
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -9,12 +17,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const Scaffold(),
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text("TEST HOME"),
+          centerTitle: true,
+        ),
+        body: Center(
+          child: ElevatedButton(
+            child: const Text("Go to User Guide"),
+            onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const UserGuide())
+              );
+            },
+          ),
+        ),
     );
   }
 }
